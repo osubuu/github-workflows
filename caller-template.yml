@@ -1,0 +1,18 @@
+# Copy this file to .github/workflows/claude-pr-review.yml in each participating repo.
+# Requires ANTHROPIC_API_KEY set as a repository secret.
+
+name: Claude PR Review
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  claude:
+    uses: osubuu/github-workflows/.github/workflows/claude-pr-review.yml@main
+    secrets:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
