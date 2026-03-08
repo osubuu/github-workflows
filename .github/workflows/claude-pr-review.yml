@@ -2,6 +2,12 @@ name: Claude PR Review (reusable)
 
 on:
   workflow_call:
+    inputs:
+      claude_args:
+        description: "Additional CLI arguments passed to Claude Code (e.g. --disallowedTools Write,Edit,Bash)"
+        required: false
+        type: string
+        default: ""
     secrets:
       ANTHROPIC_API_KEY:
         required: true
@@ -30,3 +36,4 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: ${{ inputs.claude_args }}
