@@ -7,7 +7,7 @@ on:
         description: "Additional CLI arguments passed to Claude Code (e.g. --disallowedTools Write,Edit,Bash)"
         required: false
         type: string
-        default: ""
+        default: "--max-turns 5"
     secrets:
       ANTHROPIC_API_KEY:
         required: true
